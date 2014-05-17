@@ -294,11 +294,9 @@ install(PROGRAMS bin/jrun DESTINATION bin)
 # Copy Thrift files
 if (THRIFT_SOURCE_DIR)
   message(STATUS "Copying PHP files into installation")
-  file(GLOB PHPFILES ${THRIFT_SOURCE_DIR}/lib/php/src/*.php)
+  file(GLOB PHPFILES ${HYPERTABLE_SOURCE_DIR}/src/php/*.php)
   install(FILES ${PHPFILES} DESTINATION lib/php)
-  install(DIRECTORY ${THRIFT_SOURCE_DIR}/lib/php/src/protocol
-		    ${THRIFT_SOURCE_DIR}/lib/php/src/server
-		    ${THRIFT_SOURCE_DIR}/lib/php/src/transport
+  install(DIRECTORY ${THRIFT_SOURCE_DIR}/lib/php/lib/Thrift
           DESTINATION lib/php USE_SOURCE_PERMISSIONS)
   message(STATUS "Copying Perl files into installation")
   file(GLOB PERLFILES ${THRIFT_SOURCE_DIR}/lib/perl/lib/*.pm)
